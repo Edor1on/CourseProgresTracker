@@ -1,0 +1,10 @@
+bin/
+obj/
+*.user
+.vs/
+*.suo
+node_modules/
+dist/
+.idea/
+*.swp
+.env
