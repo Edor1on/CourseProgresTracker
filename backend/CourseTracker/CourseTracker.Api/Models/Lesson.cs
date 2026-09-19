@@ -3,7 +3,7 @@
     public class Lesson
     {
         public int Id { get; set; }
-        public string CourseId { get; set; } = String.Empty;
+        public int CourseId { get; set; }
         public string Title { get; set; } = String.Empty;
         public string? Description { get; set; }
         public bool IsCompleted { get; set; } = false;
