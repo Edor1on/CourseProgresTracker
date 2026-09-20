@@ -1,1 +1,45 @@
-<p>course-details works!</p>
+<div class="course-details-container">
+  <h2>Lessons</h2>
+
+  <form (ngSubmit)="createLesson()" class="create-form">
+    <input type="text"
+           [(ngModel)]="newLessonTitle"
+           name="lessonTitle"
+           placeholder="Lesson title"
+           required />
+    <input type="text"
+           [(ngModel)]="newLessonDescription"
+           name="lessonDescription"
+           placeholder="Description (optional)" />
+    <button type="submit">Add Lesson</button>
+  </form>
+
+  @if (isLoading) {
+  <p>Loading...</p>
+  }
+
+  @if (errorMessage) {
+  <p class="error">{{ errorMessage }}</p>
+  }
+
+  @if (lessons.length === 0 && !isLoading) {
+  <p>No lessons yet. Add one above.</p>
+  }
+
+  <ul class="lesson-list">
+    @for (lesson of lessons; track lesson.id) {
+    <li [class.completed]="lesson.isCompleted">
+      <input type="checkbox"
+             [checked]="lesson.isCompleted"
+             (change)="toggleCompleted(lesson)" />
+      <div class="lesson-info">
+        <strong>{{ lesson.title }}</strong>
+        @if (lesson.description) {
+        <p>{{ lesson.description }}</p>
+        }
+      </div>
+      <button (click)="deleteLesson(lesson.id)">Delete</button>
+    </li>
+    }
+  </ul>
+</div>

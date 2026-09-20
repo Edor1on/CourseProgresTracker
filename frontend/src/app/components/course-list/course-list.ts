@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CourseService } from '../../services/course';
 import { Course } from '../../models/course.model';
+
 
 @Component({
   selector: 'app-course-list',
@@ -19,6 +20,8 @@ export class CourseList implements OnInit {
   newCourseDescription = '';
 
   selectedCourseId: number | null = null;
+
+  @Output() courseSelected = new EventEmitter<number>();
 
   constructor(private courseService: CourseService) { }
 
@@ -81,10 +84,12 @@ export class CourseList implements OnInit {
 
   selectCourse(id: number): void {
     this.selectedCourseId = id;
+    this.courseSelected.emit(id);
   }
 
   getProgress(course: Course): number {
     if (course.totalLessons === 0) return 0;
     return Math.round((course.completedLessons / course.totalLessons) * 100);
   }
+
 }

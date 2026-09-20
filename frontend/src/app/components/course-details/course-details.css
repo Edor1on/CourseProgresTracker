@@ -1,0 +1,64 @@
+.course-details-container {
+  padding: 16px;
+  max-width: 500px;
+}
+
+.create-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+  .create-form input {
+    flex: 1;
+    padding: 8px;
+  }
+
+  .create-form button {
+    padding: 8px 16px;
+  }
+
+.lesson-list {
+  list-style: none;
+  padding: 0;
+}
+
+  .lesson-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+
+    .lesson-list li.completed .lesson-info strong {
+      text-decoration: line-through;
+      color: #888;
+    }
+
+.lesson-info {
+  flex: 1;
+}
+
+.error {
+  color: red;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #4caf50;
+  transition: width 0.3s ease;
+  min-width: 2px;
+}

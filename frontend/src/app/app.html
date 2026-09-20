@@ -1,1 +1,6 @@
-<app-course-list></app-course-list>
+<div class="app-layout">
+  <app-course-list (courseSelected)="onCourseSelected($event)"></app-course-list>
+  @if (selectedCourseId) {
+  <app-course-details [courseId]="selectedCourseId"></app-course-details>
+  }
+</div>

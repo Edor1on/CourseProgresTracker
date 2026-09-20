@@ -67,3 +67,15 @@
 .error {
   color: red;
 }
+
+.app-layout {
+  display: flex;
+  gap: 24px;
+  padding: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+  .app-layout > * {
+    flex: 1;
+  }
