@@ -1,0 +1,69 @@
+.course-list-container {
+  padding: 16px;
+  max-width: 500px;
+}
+
+.create-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+  .create-form input {
+    flex: 1;
+    padding: 8px;
+  }
+
+  .create-form button {
+    padding: 8px 16px;
+  }
+
+.course-list {
+  list-style: none;
+  padding: 0;
+}
+
+  .course-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+
+    .course-list li.selected {
+      border-color: #2196f3;
+      background: #e3f2fd;
+    }
+
+.course-info {
+  flex: 1;
+}
+
+.progress-text {
+  font-size: 0.85em;
+  color: #555;
+  margin-top: 4px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #4caf50;
+  transition: width 0.3s;
+}
+
+.error {
+  color: red;
+}

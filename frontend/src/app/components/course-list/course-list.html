@@ -1,0 +1,49 @@
+<div class="course-list-container">
+  <h2>Courses</h2>
+
+  <form (ngSubmit)="createCourse()" class="create-form">
+    <input type="text"
+           [(ngModel)]="newCourseTitle"
+           name="title"
+           placeholder="Course title"
+           required />
+    <input type="text"
+           [(ngModel)]="newCourseDescription"
+           name="description"
+           placeholder="Description (optional)" />
+    <button type="submit">Add Course</button>
+  </form>
+
+  @if (isLoading) {
+  <p>Loading...</p>
+  }
+
+  @if (errorMessage) {
+  <p class="error">{{ errorMessage }}</p>
+  }
+
+  <ul class="course-list">
+    @for (course of courses; track course.id) {
+    <li [class.selected]="selectedCourseId === course.id"
+        (click)="selectCourse(course.id)">
+      <div class="course-info">
+        <strong>{{ course.title }}</strong>
+        @if (course.description) {
+        <p>{{ course.description }}</p>
+        }
+        <div class="progress-text">
+          {{ course.completedLessons }} / {{ course.totalLessons }} lessons
+          ({{ getProgress(course) }}%)
+        </div>
+        <div class="progress-bar">
+          <div class="progress-bar-fill"
+               [style.width.%]="getProgress(course)"></div>
+        </div>
+      </div>
+      <button (click)="deleteCourse(course.id); $event.stopPropagation()">
+        Delete
+      </button>
+    </li>
+    }
+  </ul>
+</div>
