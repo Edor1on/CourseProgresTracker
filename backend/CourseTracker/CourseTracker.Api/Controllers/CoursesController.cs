@@ -17,7 +17,6 @@ public class CoursesController : ControllerBase
         _context = context;
     }
 
-    // GET /courses
     [HttpGet]
     public async Task<ActionResult<IEnumerable<CourseDto>>> GetCourses()
     {
@@ -36,7 +35,6 @@ public class CoursesController : ControllerBase
         return Ok(courses);
     }
 
-    // GET /courses/:id  (опційний ендпоінт)
     [HttpGet("{id}")]
     public async Task<ActionResult<CourseDto>> GetCourse(int id)
     {
@@ -59,7 +57,6 @@ public class CoursesController : ControllerBase
         return Ok(course);
     }
 
-    // POST /courses
     [HttpPost]
     public async Task<ActionResult<CourseDto>> CreateCourse(CreateCourseDto dto)
     {
@@ -89,7 +86,6 @@ public class CoursesController : ControllerBase
         return CreatedAtAction(nameof(GetCourse), new { id = course.Id }, resultDto);
     }
 
-    // DELETE /courses/:id
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteCourse(int id)
     {
