@@ -10,7 +10,7 @@ A simple full-stack application for tracking progress in courses. Built as a tes
 ### Run with Docker Compose
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Edor1on/CourseProgresTracker.git
 cd course-progress-tracker
 docker compose up --build
 ```
